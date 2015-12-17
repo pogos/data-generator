@@ -1,0 +1,23 @@
+{
+  "name": "pesel-generator",
+  "version": "0.0.1",
+  "main": "pesel_generator.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },
+  "scripts": {
+    "test": "jasmine-node spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "*YOUR GITHUB URL*"
+  },
+  "bugs": {
+    "url": "*YOUR GITHUB URL*/issues"
+  },
+  "homepage": "*YOUR GITHUB URL*#readme",
+  "description": ""
+}
