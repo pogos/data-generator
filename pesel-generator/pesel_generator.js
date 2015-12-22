@@ -64,7 +64,14 @@ PeselGenerator.prototype.getPeselDate = function(birthDate) {
 }
 
 PeselGenerator.prototype.getCheckSumDigit = function(data) {
-	return "0";
+	var wages = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];
+	var sum = 0;
+	for (var i = 0; i < 10; i++) {
+		sum += parseInt(data[i]) * wages[i];
+	}
+	
+	var result = Math.floor( (10 - (sum % 10)) % 10 );
+	return "" + result;
 }
 
 PeselGenerator.prototype.generatePesel = function(birthDate, sex) {
@@ -74,11 +81,5 @@ PeselGenerator.prototype.generatePesel = function(birthDate, sex) {
 	pesel = pesel + this.getCheckSumDigit(pesel);
 	return pesel;
 }
-
-//var generator = new PeselGenerator();
-
-//var pesel = generator.generatePesel(new Date(Date.parse('1982-07-03')), 'M');
-
-//console.log('Pesel: ' + pesel);
 
 module.exports.PeselGenerator = PeselGenerator;
