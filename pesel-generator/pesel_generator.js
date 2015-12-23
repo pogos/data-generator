@@ -82,4 +82,10 @@ PeselGenerator.prototype.generatePesel = function(birthDate, sex) {
 	return pesel;
 }
 
+PeselGenerator.prototype.isPeselCorrect = function(pesel) {
+
+	var checksumDigit = this.getCheckSumDigit(pesel.substr(0,10));
+	return checksumDigit === pesel.substr(10,1);
+}
+
 module.exports.PeselGenerator = PeselGenerator;

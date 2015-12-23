@@ -6,6 +6,9 @@ describe("Pesel generator tests: ", function() {
 	
 	var generator = new peselGenerator.PeselGenerator();
 	
+	var correctPesels = ["80010715437", "80040308425", "73090311121", "98812001742", "01320615886", "13262318521", "24311110302", "27520712480", "33661916058"];
+	var inCorrectPesels = ["80010715433", "80040308424", "73090311120", "98812001741", "01320615888", "13262318520", "24311110305", "27520712486", "33661916057"];
+	
 	describe("Basics tests for pesel: ", function() {
 		
 		it("Pesel should have eleven characters", function() {
@@ -68,8 +71,7 @@ describe("Pesel generator tests: ", function() {
 
 	});
 	
-	describe("Checking sex in pesel: ", function() {
-		
+	describe("Checking sex in pesel: ", function() {		
 		
 		it("Check sex pesel digit for female", function() {
 			var date = new Date(Date.parse('2251-05-19'))
@@ -89,9 +91,7 @@ describe("Pesel generator tests: ", function() {
 		
 	});
 	
-	describe("Checking sum control", function() {
-		
-		var correctPesels = ["80010715437", "80040308425", "73090311121", "98812001742", "01320615886", "13262318521", "24311110302", "27520712480", "33661916058"];
+	describe("Checking sum control", function() {		
 		
 		it("Check sum control", function() {
 			
@@ -103,5 +103,27 @@ describe("Pesel generator tests: ", function() {
 			}
 			
 		});
+	});
+	
+	describe("Verify pesel", function() {
+		
+		it("Verify correct pesels", function() {
+			for (var i = 0, len = correctPesels.length; i < len; i++) {
+
+				var isCorrect = generator.isPeselCorrect(correctPesels[i]);
+				
+				expect(isCorrect).toEqual(true);
+			}
+		}); 
+		
+		it("Verify incorrect pesels", function() {
+			for (var i = 0, len = inCorrectPesels.length; i < len; i++) {
+
+				var isCorrect = generator.isPeselCorrect(inCorrectPesels[i]);
+				
+				expect(isCorrect).toEqual(false);
+			}
+		});
+		
 	});
 });
