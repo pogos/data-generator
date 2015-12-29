@@ -1,0 +1,33 @@
+{
+  "name": "data-generator",
+  "version": "0.0.1",
+  "description": "Test data generators",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+	"test": "jasmine-node test"
+
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "istanbul": "^0.4.1",
+    "jasmine-node": "^1.14.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pogos/data-generator.git"
+  },
+  "keywords": [
+    "pesel",
+    "nip"
+  ],
+  "author": "Sebastian Pogorzelski'",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pogos/data-generator/issues"
+  },
+  "homepage": "https://github.com/pogos/data-generator#readme"
+}
